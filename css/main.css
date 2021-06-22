@@ -21,7 +21,7 @@ h1 {
     font-size: 30px;
 }
 
-a {
+.nav {
     text-decoration: none;
     color: black;
     margin-left: 20px;
@@ -45,4 +45,9 @@ h2 {
     width: 65%;
     font-size: 20px;
     margin: 0 auto;
+}
+
+#youtubelink {
+    text-decoration: none;
+    color: rgb(65, 94, 145);
 }
