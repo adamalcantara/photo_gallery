@@ -1,0 +1,89 @@
+/* gallery container */
+
+section {
+    display: flex;
+    justify-content: center;
+}
+
+#index-gallery {
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: auto;
+    grid-gap: 50px;
+    /* Creating the grid which is used below as noted */
+    grid-template-areas: 
+    "img1 img2 img3 img4"
+    "img5 img6 img7 img8"
+    "img9 img10 img11 img12";
+}
+
+#index-gallery .gallery-img {
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+}
+
+/* images */
+/* GRID IS USED HERE */
+#index-gallery .img1 {
+    grid-area: img1;
+    background-image: url("../img/thumbs/img1.jpg");
+}
+
+#index-gallery .img2 {
+    grid-area: img2;
+    background-image: url("../img/thumbs/img2.jpg");
+}
+
+#index-gallery .img3 {
+    grid-area: img3;
+    background-image: url("../img/thumbs/img3.jpg");
+}
+
+#index-gallery .img4 {
+    grid-area: img4;
+    background-image: url("../img/thumbs/img4.jpg");
+}
+
+#index-gallery .img5 {
+    grid-area: img5;
+    background-image: url("../img/thumbs/img5.jpg");
+}
+
+#index-gallery .img6 {
+    grid-area: img6;
+    background-image: url("../img/thumbs/img6.jpg");
+}
+
+#index-gallery .img7 {
+    grid-area: img7;
+    background-image: url("../img/thumbs/img7.jpg");
+}
+
+#index-gallery .img8 {
+    grid-area: img8;
+    background-image: url("../img/thumbs/img8.jpg");
+}
+
+#index-gallery .img9 {
+    grid-area: img9;
+    background-image: url("../img/thumbs/img9.jpg");
+}
+
+#index-gallery .img10 {
+    grid-area: img10;
+    background-image: url("../img/thumbs/img10.jpg");
+}
+
+#index-gallery .img11 {
+    grid-area: img11;
+    background-image: url("../img/thumbs/img11.jpg");
+}
+
+#index-gallery .img12 {
+    grid-area: img12;
+    background-image: url("../img/thumbs/img12.jpg");
+}
