@@ -113,3 +113,25 @@ section {
     text-decoration: none;
     text-transform: uppercase;
 }
+
+/* Image popup window */
+
+.img-window {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.img-window img {
+    max-height: 80vh;
+    max-width: 80vw;
+    
+}
