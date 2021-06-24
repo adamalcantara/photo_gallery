@@ -26,6 +26,12 @@ if(galleryImages) {
             newImgWindow.setAttribute("class", "img-window");
             //On click event so that image closes when container is clicked
             newImgWindow.setAttribute("onclick", "closeImg()");
+
+            let newImg = document.createElement("img");
+            newImgWindow.appendChild(newImg);
+            newImg.setAttribute("src", "img/" + setNewImgUrl);
+
+
         }
     });
 }
