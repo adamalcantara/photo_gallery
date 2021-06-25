@@ -3,9 +3,9 @@ let getLatestOpenedImg;
 let windowWidth = window.innerWidth;
 
 //Get the gallery images
-if(galleryImages) {
-    galleryImages.forEach(function(image, index) {
-        image.onclick = function() {
+if (galleryImages) {
+    galleryImages.forEach(function (image, index) {
+        image.onclick = function () {
             //Get the CSS for the image that is clicked on
             let getElementCss = window.getComputedStyle(image);
             //Get the background-image property from the CSS for the image that is clicked on
@@ -31,7 +31,32 @@ if(galleryImages) {
             newImgWindow.appendChild(newImg);
             newImg.setAttribute("src", "img/" + setNewImgUrl);
 
+            newImg.onload = function () {
+                //Get the width of the image
+                let imgWidth = this.width;
+                let calcImgToEdge = ((windowWidth - imgWidth) / 2) - 80;
 
+                //Creating next button
+                let newNextBtn = document.createElement("a");
+                let btnNextText = document.createTextNode("<")
+                //Appending previous button
+                newNextBtn.appendChild(btnNextText);
+                container.appendChild(newNextBtn);
+                //Set attribute and on click for the button
+                newNextBtn.setAttribute("class", "img-btn-next")
+                newNextBtn.setAttribute("onclick", "changeImg()")
+                newNextBtn.style.cssText = "";
+
+                //Creating previous button
+                let newPrevBtn = document.createElement("a");
+                let btnPrevText = document.createTextNode(">")
+                //Appending previous button
+                newPrevBtn.appendChild(btnPrevText);
+                container.appendChild(newPrevBtn);
+                //Set attribute and on click for the button
+                newPrevBtn.setAttribute("class", "img-btn-prev")
+                newPrevBtn.setAttribute("onclick", "changeImg()")
+            }
         }
     });
 }
