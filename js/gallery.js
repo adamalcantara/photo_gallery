@@ -30,6 +30,7 @@ if (galleryImages) {
             let newImg = document.createElement("img");
             newImgWindow.appendChild(newImg);
             newImg.setAttribute("src", "img/" + setNewImgUrl);
+            newImg.setAttribute("id", "current-img");
 
             newImg.onload = function () {
                 //Get the width of the image
@@ -44,7 +45,7 @@ if (galleryImages) {
                 container.appendChild(newNextBtn);
                 //Set attribute and on click for the button
                 newNextBtn.setAttribute("class", "img-btn-next")
-                newNextBtn.setAttribute("onclick", "changeImg()")
+                newNextBtn.setAttribute("onclick", "changeImg(1)")
                 newNextBtn.style.cssText = "right: " + calcImgToEdge + "px";
 
                 //Creating previous button
@@ -55,19 +56,57 @@ if (galleryImages) {
                 container.appendChild(newPrevBtn);
                 //Set attribute and on click for the button
                 newPrevBtn.setAttribute("class", "img-btn-prev")
-                newPrevBtn.setAttribute("onclick", "changeImg()")
+                newPrevBtn.setAttribute("onclick", "changeImg(0)")
                 newPrevBtn.style.cssText = "left: " + calcImgToEdge + "px";
             }
         }
     });
 }
 
+//Close the image and buttons
 function closeImg() {
     document.querySelector(".img-window").remove();
     document.querySelector(".img-btn-prev").remove();
     document.querySelector(".img-btn-next").remove();
 }
 
-function changeImg() {
+function changeImg(changeDir) {
+    //Remove the current image before moving to the next one
+    document.querySelector("#current-img").remove();
     
+    let getImgWindow = document.querySelector(".img-window")
+    let newImg = document.createElement("img");
+    getImgWindow.appendChild(newImg);
+
+    let calcNewImg;
+    if(changeDir === 1) {
+        calcNewImg = getLatestOpenedImg + 1;
+        //If image opened is last, then go back to beginning
+        if(calcNewImg > galleryImages.length) {
+            calcNewImg = 1;
+        }
+    } else if(changeDir === 0) {
+        calcNewImg = getLatestOpenedImg - 1;
+        //If image opened is first, then go to the end
+        if(calcNewImg < 1) {
+            calcNewImg = galleryImages.length;
+        }
+    }
+
+    newImg.setAttribute("src", "img/img" + calcNewImg + ".jpg");
+    newImg.setAttribute("id", "current-img");
+
+    //Set latest opened image to the calcNewImg
+    getLatestOpenedImg = calcNewImg;
+
+    newImg.onload = function() {
+        let imgWidth = this.width;
+        let calcImgToEdge = ((windowWidth - imgWidth) / 2) - 80;
+
+        let nextBtn = document.querySelector(".img-btn-next")
+        nextBtn.style.cssText = "right: " + calcImgToEdge + "px;";
+
+        let prevBtn = document.querySelector(".img-btn-prev")
+        prevBtn.style.cssText = "left: " + calcImgToEdge + "px;";
+    }
 }
