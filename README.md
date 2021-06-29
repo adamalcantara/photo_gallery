@@ -3,6 +3,9 @@
 
   ## Description 
 Experimentation with a photo gallery created with JavaScript, HTML, and CSS ahead of creating the website for my freelance photography business. All images © Adam Alcantara, 2021.
+
+[Deployed Application](https://adamalcantara.github.io/photo_gallery/)
+
   ## Table of Contents 
   
   * [License](#license)
