@@ -51,3 +51,20 @@ h2 {
     text-decoration: none;
     color: rgb(65, 94, 145);
 }
+
+@media screen and (max-width: 900px) {
+    #header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #nav {
+        position: relative;
+        right: 0;
+    }
+
+    .nav {
+        margin-left: 0;
+        margin: 10px;
+    }
+}

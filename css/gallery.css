@@ -195,3 +195,13 @@ section {
     }
 }
 
+@media screen and (max-width: 900px) {
+    #index-gallery {
+        grid-template-columns: 175px 175px 175px;
+    }
+
+    #index-gallery .gallery-img {
+        width: 175px;
+        height: 175px;
+    }
+}
